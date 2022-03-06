@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Country extends Model
+class Locale extends Model
 {
     use HasFactory;
 
@@ -22,13 +22,14 @@ class Country extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'code',
-        'name'
-    ];
+    protected $fillable = ['code', 'description'];
 
-    public function statistic(): HasOne
+
+    /**
+     * @return HasMany
+     */
+    public function localizations(): HasMany
     {
-        return $this->hasOne(Statistic::class);
+        return $this->hasMany(Localization::class);
     }
 }
