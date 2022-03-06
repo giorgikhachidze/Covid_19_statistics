@@ -23,4 +23,19 @@ class StatisticRepository implements StatisticRepositoryInterface
 
         return $pipeline->get();
     }
+
+    /**
+     * @return mixed
+     */
+    public function summary() : mixed
+    {
+        $pipeline = app(Pipeline::class)
+            ->send(Statistic::query())
+            ->through([
+                \App\QueryFilters\Summary::class,
+            ])
+            ->thenReturn();
+
+        return $pipeline->first();
+    }
 }

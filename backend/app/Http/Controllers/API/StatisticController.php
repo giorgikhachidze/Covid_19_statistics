@@ -32,4 +32,14 @@ class StatisticController extends Controller
             'data' => $statistics
         ]);
     }
+
+    /**
+     * @return JsonResponse
+     */
+    public function summary(): JsonResponse
+    {
+        return response()->json([
+            'data' => $this->statisticRepository->summary()
+        ]);
+    }
 }

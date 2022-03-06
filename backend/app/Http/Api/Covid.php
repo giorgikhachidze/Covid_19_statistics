@@ -2,64 +2,52 @@
 
 namespace App\Http\Api;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Support\Facades\Http;
 
 class Covid
 {
     /**
-     * @var Client
+     * @var PendingRequest
      */
-    private Client $client;
+    private PendingRequest $http;
 
     /**
      * @var mixed|Repository|Application
      */
     private mixed $uri;
 
-    /**
-     * @var array
-     */
-    private array $options;
-
     function __construct()
     {
-        $this->client  = new Client;
-        $this->uri     = config('api.covid.url');
-        $this->options = [
-            'headers' => [
-                'accept' => 'application/json'
-            ],
-            'timeout' => 15,
-        ];
+        $this->uri  = config('api.covid.url');
+        $this->http = Http::timeout(15)->withHeaders([
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+        ]);
     }
 
     /**
-     * @return mixed|null
-     * @throws GuzzleException
+     * @return array|mixed
      */
-    public function getAllCountries(): mixed
+    public function getCountries(): mixed
     {
-        $response = $this->client->get($this->uri . '/countries', $this->options);
+        $response = $this->http->get($this->uri . '/countries');
 
-        return json_decode($response->getBody()->getContents());
+        return $response->json();
     }
 
     /**
      * @param $code
-     * @return mixed|null
-     * @throws GuzzleException
+     * @return array|mixed
      */
-    public function getCountryStatistic($code): mixed
+    public function getCountryStatistics($code): mixed
     {
-        $response = $this->client->post($this->uri . '/get-country-statistics', $this->options + [
-                'form_params' => [
-                    'code' => $code
-                ]
-            ]);
+        $response = $this->http->post($this->uri . '/get-country-statistics', [
+            'code' => $code
+        ]);
 
-        return json_decode($response->getBody()->getContents());
+        return $response->json();
     }
 }

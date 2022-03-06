@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\LocaleController;
 use App\Http\Controllers\API\StatisticController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +21,15 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/register', 'register');
 });
 
+Route::controller(LocaleController::class)->prefix('/locale')->group(function () {
+    Route::get('/', 'index');
+});
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/logout', [AuthController::class, 'logout']);
 
     Route::controller(StatisticController::class)->prefix('/statistics')->group(function () {
         Route::get('/filter', 'filter');
+        Route::get('/summary', 'summary');
     });
 });

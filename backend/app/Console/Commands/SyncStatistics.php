@@ -3,13 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Http\Api\Covid;
-use App\Http\Api\CovidApi;
 use App\Models\Country;
 use App\Models\Statistic;
-use Exception;
-use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
 
 class SyncStatistics extends Command
 {
@@ -44,19 +40,23 @@ class SyncStatistics extends Command
      */
     public function handle(Covid $covidApi): int
     {
-        $countries = Country::all();
-        foreach($countries as $country){
-            $statistics = $covidApi->getCountryStatistic($country->code);
+        try {
+            $countries = Country::all();
+            foreach($countries as $country){
+                $statistics = $covidApi->getCountryStatistics($country->code);
 
-            $countyStatistic = $country->statistic ?? new Statistic;
-            $countyStatistic->country_id = $country->id;
-            $countyStatistic->confirmed = $statistics->confirmed;
-            $countyStatistic->recovered = $statistics->recovered;
-            $countyStatistic->death = $statistics->deaths;
-            $countyStatistic->save();
+                $countyStatistic = $country->statistic ?? new Statistic;
+                $countyStatistic->country_id = $country->id;
+                $countyStatistic->confirmed = $statistics['confirmed'];
+                $countyStatistic->recovered = $statistics['recovered'];
+                $countyStatistic->death = $statistics['deaths'];
+                $countyStatistic->save();
 
-            sleep(1);
+                sleep(1);
+            }
+            return 1;
+        } catch (\Exception $e) {
+            return 0;
         }
-        return 1;
     }
 }

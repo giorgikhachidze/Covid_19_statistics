@@ -17,12 +17,12 @@ class CountrySeeder extends Seeder
      */
     public function run(Covid $covidApi)
     {
-        $countries = $covidApi->getAllCountries();
+        $countries = $covidApi->getCountries();
 
         foreach ($countries as $country) {
             Country::insert([
-                "code" => $country->code,
-                "name" => json_encode($country->name)
+                "code" => $country['code'],
+                "name" => json_encode($country['name'])
             ]);
         }
     }

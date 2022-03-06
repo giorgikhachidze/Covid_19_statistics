@@ -13,11 +13,11 @@ class Sort
      */
     public function handle($builder, Closure $next): mixed
     {
-        $sortColumn    = request()->sortColumn ?? null;
-        $sortDirection = request()->sortDirection ?? 'desc';
+        $column    = request()->column ?? null;
+        $direction = request()->direction ?? 'desc';
 
-        return $next($builder)->when($sortColumn, function ($query) use ($sortColumn, $sortDirection) {
-            $query->orderBy($sortColumn, $sortDirection);
+        return $next($builder)->when($column, function ($query) use ($column, $direction) {
+            $query->orderBy($column, $direction);
         });
     }
 }

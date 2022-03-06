@@ -11,6 +11,38 @@ class LocalizationSeeder extends Seeder
     private array $localizations = [
         "en" => [
             [
+                "key" => "login",
+                "value" => "Login"
+            ],
+            [
+                "key" => "authorization",
+                "value" => "Authorization"
+            ],
+            [
+                "key" => "register",
+                "value" => "Register"
+            ],
+            [
+                "key" => "registration",
+                "value" => "Registration"
+            ],
+            [
+                "key" => "name",
+                "value" => "Name"
+            ],
+            [
+                "key" => "email",
+                "value" => "Email"
+            ],
+            [
+                "key" => "password",
+                "value" => "Password"
+            ],
+            [
+                "key" => "password_confirmation",
+                "value" => "Password confirmation"
+            ],
+            [
                 "key" => "search",
                 "value" => "Search"
             ],
@@ -41,6 +73,38 @@ class LocalizationSeeder extends Seeder
 
         ],
         "ka" => [
+            [
+                "key" => "login",
+                "value" => "შესვლა"
+            ],
+            [
+                "key" => "authorization",
+                "value" => "ავტორიზაცია"
+            ],
+            [
+                "key" => "register",
+                "value" => "რეგისტრაცია"
+            ],
+            [
+                "key" => "registration",
+                "value" => "რეგისტრაცია"
+            ],
+            [
+                "key" => "name",
+                "value" => "სახელი"
+            ],
+            [
+                "key" => "email",
+                "value" => "ელ-ფოსტა"
+            ],
+            [
+                "key" => "password",
+                "value" => "პაროლი"
+            ],
+            [
+                "key" => "password_confirmation",
+                "value" => "პაროლის დადასტურება"
+            ],
             [
                 "key" => "search",
                 "value" => "ძიება"
