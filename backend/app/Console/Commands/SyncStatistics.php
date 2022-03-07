@@ -52,7 +52,7 @@ class SyncStatistics extends Command
                 $countyStatistic->death = $statistics['deaths'];
                 $countyStatistic->save();
 
-                sleep(1);
+                sleep(5);
             }
             return 1;
         } catch (\Exception $e) {
