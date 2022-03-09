@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 const DefaultPasswordField = (props) => {
-  const widthSizeClass = "w-full px-2 md:w-1/" + props.element;
+  const widthSizeClass = `${!props.offFull ? 'w-full ': ''}px-2 xl:w-${props.startElement ?? '1'}/${props.element} lg:w-${props.startElement ?? '1'}/${props.element} md:w-${props.startElement ?? '1'}/${props.element}`;
   const [showPassword, setShowPassword] = useState(false);
 
   return  <div className={widthSizeClass}>
