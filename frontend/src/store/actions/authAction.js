@@ -1,0 +1,2 @@
+export const INSERT_AUTH_DATA = 'INSERT_AUTH_DATA'
+export const USER_LOGOUT = 'USER_LOGOUT'

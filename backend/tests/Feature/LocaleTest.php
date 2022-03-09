@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Locale;
 use App\Models\Localization;
 use Database\Factories\LocalizationFactory;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,18 +25,20 @@ class LocaleTest extends TestCase
     {
         Localization::factory()->count(10)->create();
 
+        $locales = Locale::all();
+
         $response = $this->withHeaders([
             'Accept' => 'application/json'
-        ])->get('api/locale');
+        ])->get('api/locales');
 
         $response->assertOk();
-        $response->assertJsonStructure([
-            'data' => [[
-                'id',
-                'code',
-                'description',
-                'localizations'
-            ]]
-        ]);
+
+        foreach($locales as $locale) {
+            $response = $this->withHeaders([
+                'Accept' => 'application/json'
+            ])->get('api/locale/'.$locale->code.'/translations');
+
+            $response->assertOk();
+        }
     }
 }

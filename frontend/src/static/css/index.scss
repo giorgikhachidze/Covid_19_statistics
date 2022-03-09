@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "FiraGO Regular";
+    src: url('../fonts/FiraGO-Regular.ttf');
+}
+
+@font-face {
+    font-family: "FiraGO Medium";
+    src: url('../fonts/FiraGO-Medium.ttf');
+}
+
+@font-face {
+    font-family: "FiraGO Bold";
+    src: url('../fonts/FiraGO-Bold.ttf');
+}
+
+.firago-regular {
+    font-family: "FiraGO Regular", sans-serif;
+}
+
+.firago-medium {
+    font-family: "FiraGO Medium", sans-serif;
+}
+
+.firago-bold {
+    font-family: "FiraGO Bold", sans-serif;
+}
+
+.firago-regular-upper {
+    font-family: "FiraGO Regular", sans-serif;
+    -webkit-font-feature-settings: "case" 1;
+    -moz-font-feature-settings: "case" 1;
+    -ms-font-feature-settings: "case" 1;
+    font-feature-settings: "case" 1;
+}
+
+.firago-medium-upper {
+    font-family: "FiraGO Medium", sans-serif;
+    -webkit-font-feature-settings: "case" 1;
+    -moz-font-feature-settings: "case" 1;
+    -ms-font-feature-settings: "case" 1;
+    font-feature-settings: "case" 1;
+}
+
+.firago-bold-upper {
+    font-family: "FiraGO Bold", sans-serif;
+    -webkit-font-feature-settings: "case" 1;
+    -moz-font-feature-settings: "case" 1;
+    -ms-font-feature-settings: "case" 1;
+    font-feature-settings: "case" 1;
+}

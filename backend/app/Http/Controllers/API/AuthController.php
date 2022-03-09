@@ -20,7 +20,7 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
+            'password' => 'required|confirmed|min:8',
         ]);
 
         $user = User::create([
@@ -32,6 +32,8 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
+            'name' => $user->name,
+            'email' => $user->email,
             'access_token' => $token,
             'token_type' => 'Bearer',
         ]);
@@ -50,7 +52,12 @@ class AuthController extends Controller
 
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
-                'message' => 'Invalid login details'
+                'message' => __('The password you entered is incorrect.'),
+                'errors' => [
+                    'password' => [
+                        __('The password you entered is incorrect.')
+                    ]
+                ]
             ], 401);
         }
 
@@ -58,6 +65,8 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
+            'name' => $user->name,
+            'email' => $user->email,
             'access_token' => $token,
             'token_type' => 'Bearer',
         ]);

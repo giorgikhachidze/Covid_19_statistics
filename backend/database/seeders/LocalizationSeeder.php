@@ -28,7 +28,7 @@ class LocalizationSeeder extends Seeder
             ],
             [
                 "key" => "name",
-                "value" => "Name"
+                "value" => "Full Name"
             ],
             [
                 "key" => "email",
@@ -70,7 +70,34 @@ class LocalizationSeeder extends Seeder
                 "key" => "confirmed",
                 "value" => "Confirmed"
             ],
-
+            [
+                "key" => "authorization.text",
+                "value" => "Enter your e-mail and password to see covid 19 statistics page."
+            ],
+            [
+                "key" => "no.account.text",
+                "value" => "Do not have an account?"
+            ],
+            [
+                "key" => "registration.text",
+                "value" => "Enter your information to register and see covid 19 statistics page."
+            ],
+            [
+                "key" => "have.account.text",
+                "value" => "Have an account?"
+            ],
+            [
+                "key" => "loading",
+                "value" => "Loading..."
+            ],
+            [
+                "key" => "enter.full_name",
+                "value" => "Enter your full name"
+            ],
+            [
+                "key" => "enter.email",
+                "value" => "Enter e-mail"
+            ],
         ],
         "ka" => [
             [
@@ -91,7 +118,7 @@ class LocalizationSeeder extends Seeder
             ],
             [
                 "key" => "name",
-                "value" => "სახელი"
+                "value" => "სახელი, გვარი"
             ],
             [
                 "key" => "email",
@@ -133,7 +160,34 @@ class LocalizationSeeder extends Seeder
                 "key" => "confirmed",
                 "value" => "დადასტურებული"
             ],
-
+            [
+                "key" => "authorization.text",
+                "value" => "შეიყვანეთ თქვენი ელ-ფოსტა და პაროლი, რომ ნახოთ კოვიდ 19-ის სტატისტიკის გვერდი."
+            ],
+            [
+                "key" => "no.account.text",
+                "value" => "არ გაქვთ ანგარიში?"
+            ],
+            [
+                "key" => "registration.text",
+                "value" => "შეიყვანეთ თქვენი ინფორმაცია, რომ დარეგისტრირდეთ და ნახოთ კოვიდ 19-ის სტატისტიკის გვერდი."
+            ],
+            [
+                "key" => "have.account.text",
+                "value" => "გაქვთ ანგარიში?"
+            ],
+            [
+                "key" => "loading",
+                "value" => "იტვირთება..."
+            ],
+            [
+                "key" => "enter.full_name",
+                "value" => "შეიყვანეთ სახელი, გვარი"
+            ],
+            [
+                "key" => "enter.email",
+                "value" => "შეიყვანეთ ელ-ფოსტა"
+            ],
         ],
     ];
 

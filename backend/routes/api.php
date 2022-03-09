@@ -21,9 +21,8 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/register', 'register');
 });
 
-Route::controller(LocaleController::class)->prefix('/locale')->group(function () {
-    Route::get('/', 'index');
-});
+Route::get('/locales', [LocaleController::class, 'index']);
+Route::get('/locale/{locale}/translations', [LocaleController::class, 'translations']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/logout', [AuthController::class, 'logout']);

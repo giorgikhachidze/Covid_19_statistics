@@ -27,6 +27,14 @@ class RegisterTest extends TestCase
         $response = $this->withHeaders([
             'Accept' => 'application/json'
         ])->post('api/register', [
+            "password" => "12345678",
+            "password_confirmation" => "123456789"
+        ]);
+        $response->assertUnprocessable();
+
+        $response = $this->withHeaders([
+            'Accept' => 'application/json'
+        ])->post('api/register', [
             "email" => "test@gmail.com"
         ]);
         $response->assertUnprocessable();
@@ -45,7 +53,8 @@ class RegisterTest extends TestCase
         ])->post('api/register',[
             "name" => $user->name,
             "email" => $user->email,
-            "password" => "12345678"
+            "password" => "12345678",
+            "password_confirmation" => "12345678",
         ]);
         $response->assertUnprocessable();
     }
@@ -57,7 +66,8 @@ class RegisterTest extends TestCase
         $data = [
             "name" => "Test user",
             "email" => "test@gmail.com",
-            "password" => "12345678"
+            "password" => "12345678",
+            "password_confirmation" => "12345678",
         ];
 
         $response = $this->withHeaders([

@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Http\Resources\StatisticResource;
 use App\Interfaces\StatisticRepositoryInterface;
 use App\Models\Statistic;
 use Illuminate\Pipeline\Pipeline;
@@ -21,7 +22,7 @@ class StatisticRepository implements StatisticRepositoryInterface
             ])
             ->thenReturn();
 
-        return $pipeline->get();
+        return StatisticResource::collection($pipeline->get());
     }
 
     /**
