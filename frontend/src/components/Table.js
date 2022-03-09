@@ -85,7 +85,7 @@ const Table = () => {
                     <Cell>
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-8 w-10">
-                          <img className="h-8 w-10 rounded"
+                          <img className="h-[30px] w-[40px] rounded shadow-md"
                                src={process.env.REACT_APP_BASE_FRONTEND_URL + "/flags/" + statistic.country.code.toLowerCase() + ".svg"}
                                alt=""/>
                         </div>
@@ -98,22 +98,20 @@ const Table = () => {
                     </Cell>
                     <Cell>
                       <span
-                        className="py-1 px-4 inline-flex text-sm leading-5 firago-medium rounded-full bg-yellow-100 text-yellow-800">{statistic.confirmed}</span>
+                        className="py-1 px-4 inline-flex text-sm leading-5 firago-medium shadow rounded bg-yellow-100 text-yellow-800">{statistic.confirmed}</span>
                     </Cell>
                     <Cell>
                       <span
-                        className="py-1 px-4 inline-flex text-sm leading-5 firago-medium rounded-full bg-green-100 text-green-800">{statistic.recovered}</span>
+                        className="py-1 px-4 inline-flex text-sm leading-5 firago-medium shadow rounded bg-green-100 text-green-800">{statistic.recovered}</span>
                     </Cell>
                     <Cell>
                       <span
-                        className="py-1 px-4 inline-flex text-sm leading-5 firago-medium rounded-full bg-red-100 text-red-800">{statistic.death}</span>
+                        className="py-1 px-4 inline-flex text-sm leading-5 firago-medium shadow rounded bg-red-100 text-red-800">{statistic.death}</span>
                     </Cell>
                   </Row>
                 ))
                 : <Row>
-                  <Cell>                  <svg role="status"
-                                               className="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-                                               viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <Cell><svg role="status" className="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
                       fill="currentColor"/>

@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../store/actions/auth";
 import ProfileImage from "../static/images/user.png"
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import Summery from "../components/Summery";
 
 const Statistics = () => {
   const auth = useSelector(state => state.auth);
@@ -54,15 +55,14 @@ const Statistics = () => {
               <img className="h-10 w-10 rounded-full" src={ProfileImage} alt={auth.name}/>
             </div>
             <div className="ml-4">
-              <div className="text-sm font-medium text-gray-900">{auth.name}</div>
-              <div className="text-sm text-gray-500">{auth.email}</div>
+              <div className="text-sm font-medium text-gray-900 firago-medium-upper">{auth.name}</div>
+              <div className="text-sm text-gray-500 firago-medium">{auth.email}</div>
             </div>
           </div>
 
           {open
             ? <div className="absolute -bottom-14 left-0 w-full bg-gray-50 rounded py-2 shadow">
-              <div onClick={handleLogout}
-                   className="px-5 text-sm cursor-pointer firago-medium text-gray-500 hover:text-gray-500 hover:bg-gray-500/10 py-1">გამოსვლა
+              <div onClick={handleLogout} className="px-5 text-sm cursor-pointer firago-medium text-gray-500 hover:text-gray-500 hover:bg-gray-500/10 py-1">გამოსვლა
               </div>
             </div>
             : null
@@ -71,6 +71,7 @@ const Statistics = () => {
       </div>
 
       <div className="mt-10 mb-20">
+        <Summery />
         <Table />
       </div>
     </div>

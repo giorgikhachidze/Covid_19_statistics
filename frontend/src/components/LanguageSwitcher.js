@@ -19,7 +19,7 @@ const LanguageSwitcher = () => {
           key={locale}
           className={locale === i18n.language ? activeClasses.join(' ') : defaultClasses.join(' ')}
           onClick={() => changeLanguage(locale)}>
-          <img src={process.env.REACT_APP_BASE_FRONTEND_URL+'/flags/'+locale+'.svg'} className="h-[24px] w-[32px] -mt-[1px]" />
+          <img src={process.env.REACT_APP_BASE_FRONTEND_URL+'/flags/'+locale+'.svg'} className="h-[24px] w-[32px] -mt-[1px]" alt={locale} />
         </button>
       })}
     </div>

@@ -44,7 +44,7 @@ class LocalizationSeeder extends Seeder
             ],
             [
                 "key" => "search",
-                "value" => "Search"
+                "value" => "Search..."
             ],
             [
                 "key" => "ascending",
@@ -69,6 +69,18 @@ class LocalizationSeeder extends Seeder
             [
                 "key" => "confirmed",
                 "value" => "Confirmed"
+            ],
+            [
+                "key" => "all.recovered",
+                "value" => "All recovered"
+            ],
+            [
+                "key" => "all.death",
+                "value" => "All Death"
+            ],
+            [
+                "key" => "all.confirmed",
+                "value" => "All confirmed"
             ],
             [
                 "key" => "authorization.text",
@@ -134,7 +146,7 @@ class LocalizationSeeder extends Seeder
             ],
             [
                 "key" => "search",
-                "value" => "ძიება"
+                "value" => "ძიება..."
             ],
             [
                 "key" => "ascending",
@@ -158,6 +170,18 @@ class LocalizationSeeder extends Seeder
             ],
             [
                 "key" => "confirmed",
+                "value" => "დადასტურებული"
+            ],
+            [
+                "key" => "all.recovered",
+                "value" => "გამოჯანმრთელებული"
+            ],
+            [
+                "key" => "all.death",
+                "value" => "გარდაცვლილი"
+            ],
+            [
+                "key" => "all.confirmed",
                 "value" => "დადასტურებული"
             ],
             [
