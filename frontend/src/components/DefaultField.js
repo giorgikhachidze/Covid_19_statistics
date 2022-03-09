@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DefaultField = (props) => {
-  const widthSizeClass = `w-full px-2 xl:w-1/${props.element} lg:w-1/${props.element} md:w-1/${props.element}`;
+  const widthSizeClass = `${!props.offFull ? 'w-full ': ''}px-2 xl:w-${props.startElement ?? '1'}/${props.element} lg:w-${props.startElement ?? '1'}/${props.element} md:w-${props.startElement ?? '1'}/${props.element}`;
 
   return <div className={widthSizeClass}>
     <label className="text-sm firago-medium-upper text-gray-700 tracking-wide cursor-pointer"
